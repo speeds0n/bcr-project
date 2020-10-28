@@ -48,11 +48,14 @@ void AnimationManage::initialize(int argc, char *argv[]){
 
 	std::ifstream file;
 
-	std::cout << "argc: " << argc << std::endl;
-
 	if(argc == 1){// Caso o user nao passe argumentos retornar erro
 
-		std::cout << "Sem parametros validos" << std::endl;
+		std::cout << "Usage: bcr [<options>] <input data_file>" << std::endl;
+		std::cout << "	Bar Chart Race options:" << std::endl;
+		std::cout << "		-b <num> Max # of bars in a single char." << std::endl;
+		std::cout << "			Valid range is[1,15]. Default values is 5." << std::endl;
+		std::cout << "		-f <num> Animation speed in fps (frames per second)." << std::endl;
+		std::cout << "			Valid range is[1,24]. Default values is 24." << std::endl;
 
 	}else if(argc == 2){//Caso o user passe apenas o nome do arquivo: carregar valores padroes
 
@@ -135,6 +138,7 @@ void AnimationManage::initialize(int argc, char *argv[]){
 			std::cout << "Comandos invalidos" << std::endl;
 		}
 	}
+	std::cout << "teste\n";
 }
 
 void AnimationManage::process(void){

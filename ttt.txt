@@ -39,3 +39,8 @@ Cada subgrupo tem o campo 0,1,2,3,4
 1(Titulo da barra)
 2(---)
 3(Categoria)
+
+No arquivo
+Titulo do grafico
+Legenda horizontal
+Fonte
