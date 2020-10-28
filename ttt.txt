@@ -1,0 +1,41 @@
+Duvidas:
+Se o usuario digitar um comando valido e outro invalido "-b 10 -s a", eu devo considerar o comando valido ou discartar todos os comandos
+
+
+eDtalhes barchart project
+
+./bcr ../data/arquivo.txt -s <fps> -b <qnt>
+-s velocidade
+-b quantidade de barras
+
+Tela Welcome
+
+Informações: Se conseguiu acessar o arquivo
+
+Welcome to the bar Chart Race, v1.0
+Copyright (C) 2020, Edson Cassiano
+
+>>> Preparing to read input file "../data/arquivo.txt"...
+
+>>> Processing data, please wait.
+>>> Input file sucessfuly read.
+
+>>> We have "519" charts, each with 12 bars.
+
+Limite de barras - 12 barras
+default 5 barras
+
+Classes
+    AnimationManeger - faz tudo - cria, ordena, captura printa e joga fora
+    banco de dados -
+    barchart - 1 unico grafico
+
+Lib de calcular os frames <thread>
+
+Para a leitura do arquivo siga os seguintes passos:
+Eu tenho que ler cada subgrupo linha tamanho do sub grupo
+Cada subgrupo tem o campo 0,1,2,3,4
+0(Contagem)
+1(Titulo da barra)
+2(---)
+3(Categoria)
