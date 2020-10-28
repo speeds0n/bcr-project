@@ -1,9 +1,8 @@
 #include <iostream>
 #include <string>
+#include <fstream>
 
 #include "../lib/bcr.h"
-
-void teste(){ std::cout << "TESTE" << std::endl; }
 
 //Construct
 AnimationManage::AnimationManage(int frameRate, int numberOfBar){
@@ -27,12 +26,27 @@ void AnimationManage::setNumberOfBar(int numberOfBar){
 void AnimationManage::setFileName(std::string fileName){
 	m_fileName = fileName;
 }
+
+void AnimationManage::setTitle(std::string title){
+	m_title = title;
+}
+
+void AnimationManage::setSubtitle(std::string subtitle){
+	m_subtitle = subtitle;
+}
+
+void AnimationManage::setSource(std::string source){
+	m_source = source;
+}
 //end sets
 
 void AnimationManage::initialize(int argc, char *argv[]){
 
 	std::string firstArgument;
 	std::string secondArgument;
+	std::string temp;
+
+	std::ifstream file;
 
 	std::cout << "argc: " << argc << std::endl;
 
@@ -43,7 +57,26 @@ void AnimationManage::initialize(int argc, char *argv[]){
 	}else if(argc == 2){//Caso o user passe apenas o nome do arquivo: carregar valores padroes
 
 		setFileName(argv[1]);
-		std::cout << "file: " << getFileName() << std::endl;
+		file.open(getFileName());
+		
+		if(file.is_open()){
+
+			getline(file, temp);
+			setTitle(temp);
+
+			getline(file, temp);
+			setSubtitle(temp);
+
+			getline(file, temp);
+			setSource(temp);
+
+			std::cout << getTitle() << std::endl;
+			std::cout << getSubtitle() << std::endl;
+			std::cout << getSource() << std::endl;
+
+		}else{//O arquivo não foi encontrado, não pode ser aberto
+			std::cout << "Não Abriu!" << std::endl;
+		}
 
 	}else if(argc == 3){//parametros digitados mas invalidos
 		
@@ -78,19 +111,33 @@ void AnimationManage::initialize(int argc, char *argv[]){
 		secondArgument = argv[4];
 		//Check se Ambos argumentos sao validos
 		if(firstArgument.compare("-b") == 0 || firstArgument.compare("-s") == 0){
+
 			if(secondArgument.compare(firstArgument) != 0){//Check se os args sao diferentes
+
 				if(secondArgument.compare("-b") == 0){
+					//TODO
 					std::cout << "primeiro arg: -s segundo arg: -b " << std::endl;
+
 				}else if(secondArgument.compare("-s") == 0){
+
 					std::cout << "primeiro arg: -b segundo arg: -s " << std::endl;
+
 				}else{
+
 					std::cout << "Comandos Invalidos" << std::endl;
+
 				}
 			}else{
 					std::cout << "Mesmo comandos" << std::endl;
 			}
 		}else{//Check se os comandos sao invalidos(cmds inexistentes ou errados)
+
 			std::cout << "Comandos invalidos" << std::endl;
 		}
 	}
+}
+
+void AnimationManage::process(void){
+	// Ordena a sublista
+	// Ajustar as barras individuais e a barra inferior(tamanho varia de acordo com a maior)
 }
