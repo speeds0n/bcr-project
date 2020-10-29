@@ -15,7 +15,7 @@ void AnimationManage::setAnimationManage(int frameRate, int numberOfBar){
 	m_numberOfBar = numberOfBar;
 }
 
-void AnimationManage::setFrame(int frameRate){
+void AnimationManage::setFrameRate(int frameRate){
 	m_frameRate = frameRate;
 }
 
@@ -49,6 +49,7 @@ void AnimationManage::initialize(int argc, char *argv[]){
 	std::ifstream file;
 
 	int aux;
+	int teste;
 
 	if(argc == 1){// Caso o user nao passe argumentos retornar erro
 
@@ -79,6 +80,18 @@ void AnimationManage::initialize(int argc, char *argv[]){
 			std::cout << getSubtitle() << std::endl;
 			std::cout << getSource() << std::endl;
 
+			file >> teste;
+			std::cout << teste << std::endl;
+
+			getline(file, temp, ',');
+			std::cout << temp << std::endl;
+			getline(file, temp, ',');
+			std::cout << temp << std::endl;
+			getline(file, temp, ',');
+			std::cout << temp << std::endl;
+			getline(file, temp, ',');
+			std::cout << temp << std::endl;
+
 		}else{//O arquivo não foi encontrado, não pode ser aberto
 			std::cout << "Não Abriu!" << std::endl;
 		}
@@ -94,16 +107,26 @@ void AnimationManage::initialize(int argc, char *argv[]){
 
 		if(firstArgument.compare("-b") == 0){//Check se o user quer mudar a qnt de barras
 			//vai até 15
+
 			aux = atoi(argv[3]);
-			std::cout << aux << std::endl;
-			std::cout << argv[3] << std::endl;
-			std::cout << "Bars Command Valid" << std::endl;
-			//TODO Checkar se argumento 3(argv[3]) é um inteiro
-			//TODO LIMITAR para 1,15
+
+			if(aux >= 1 && aux <= 15){
+
+				setNumberOfBar(aux);
+
+			}else{
+				// Quantidade de Barras padrão
+			}
+
 		}else if(firstArgument.compare("-s") == 0){//Check se o user quer mudar a quantidade de frames
 
-			std::cout << "Frames Command Valid" << std::endl;
-			//TODO Checkar se argumento 3(argv[3]) é um inteiro
+			aux = atoi(argv[3]);
+
+			if(aux >= 1 && aux <= 24){
+				setFrameRate(aux);
+			}else{
+				// Quantidade de Frames padrão
+			}
 
 		}else{//Se o user Digitar algum comando invalido
 
@@ -125,10 +148,49 @@ void AnimationManage::initialize(int argc, char *argv[]){
 				if(secondArgument.compare("-b") == 0){
 					//TODO
 					std::cout << "primeiro arg: -s segundo arg: -b " << std::endl;
+					aux = atoi(argv[3]);
+
+					if(aux >= 1 && aux <= 24){
+
+						setFrameRate(aux);
+
+					}else{
+						// Quantidade de Barras padrão
+					}
+
+					aux = atoi(argv[5]);
+
+					if(aux >= 1 && aux <= 15){
+
+						setNumberOfBar(aux);
+
+					}else{
+						// Quantidade de Barras padrão
+					}
 
 				}else if(secondArgument.compare("-s") == 0){
 
 					std::cout << "primeiro arg: -b segundo arg: -s " << std::endl;
+	
+					aux = atoi(argv[3]);
+
+					if(aux >= 1 && aux <= 15){
+
+						setNumberOfBar(aux);
+
+					}else{
+						// Quantidade de Barras padrão
+					}
+
+					aux = atoi(argv[5]);
+
+					if(aux >= 1 && aux <= 24){
+
+						setFrameRate(aux);
+
+					}else{
+						// Quantidade de Barras padrão
+					}
 
 				}else{
 
@@ -143,7 +205,6 @@ void AnimationManage::initialize(int argc, char *argv[]){
 			std::cout << "Comandos invalidos" << std::endl;
 		}
 	}
-	std::cout << "teste\n";
 }
 
 void AnimationManage::process(void){

@@ -16,15 +16,15 @@ class AnimationManage{
 		AnimationManage(int frameRate=24, int numberOfBar=5);
 		
 		void setAnimationManage(int frameRate, int numberOfBar);
-		void setFrame(int frameRate);
+		void setFrameRate(int frameRate);
 		void setNumberOfBar(int numberOfBar);
 		void setFileName(std::string fileName);
 		void setTitle(std::string title);
 		void setSubtitle(std::string subtitle);
 		void setSource(std::string source);
 
-		int getFrame(){ return m_frameRate; }
-		int getnumberOfBar(){ return m_numberOfBar; }
+		int getFrameRate(){ return m_frameRate; }
+		int getNumberOfBar(){ return m_numberOfBar; }
 		std::string getFileName(){ return m_fileName; }
 		std::string getTitle(){ return m_title; }
 		std::string getSubtitle(){ return m_subtitle; }
@@ -35,6 +35,15 @@ class AnimationManage{
 		void initialize(int argc, char *argv[]);
 
 		void process(void);
+};
+
+class BarChart{
+
+	private:
+		int m_count;
+		int m_value;
+		std::string m_name;
+		std::string category;
 };
 
 #endif
