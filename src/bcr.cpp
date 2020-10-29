@@ -48,6 +48,8 @@ void AnimationManage::initialize(int argc, char *argv[]){
 
 	std::ifstream file;
 
+	int aux;
+
 	if(argc == 1){// Caso o user nao passe argumentos retornar erro
 
 		std::cout << "Usage: bcr [<options>] <input data_file>" << std::endl;
@@ -57,7 +59,7 @@ void AnimationManage::initialize(int argc, char *argv[]){
 		std::cout << "		-f <num> Animation speed in fps (frames per second)." << std::endl;
 		std::cout << "			Valid range is[1,24]. Default values is 24." << std::endl;
 
-	}else if(argc == 2){//Caso o user passe apenas o nome do arquivo: carregar valores padroes
+	}else if(argc >= 2){// Se o user digitar o nome do arquivo, verifica se é valido
 
 		setFileName(argv[1]);
 		file.open(getFileName());
@@ -80,21 +82,24 @@ void AnimationManage::initialize(int argc, char *argv[]){
 		}else{//O arquivo não foi encontrado, não pode ser aberto
 			std::cout << "Não Abriu!" << std::endl;
 		}
-
-	}else if(argc == 3){//parametros digitados mas invalidos
+	}	
+	
+	if(argc == 3){//parametros digitados mas invalidos
 		
 		std::cout << "Faltam parametros" << std::endl;
 
-	}
-	else if(argc == 4){//Caso o user digite apenas um parametro
+	}else if(argc == 4){//Caso o user digite apenas um parametro
 
 		firstArgument = argv[2];
 
 		if(firstArgument.compare("-b") == 0){//Check se o user quer mudar a qnt de barras
-
+			//vai até 15
+			aux = atoi(argv[3]);
+			std::cout << aux << std::endl;
+			std::cout << argv[3] << std::endl;
 			std::cout << "Bars Command Valid" << std::endl;
 			//TODO Checkar se argumento 3(argv[3]) é um inteiro
-
+			//TODO LIMITAR para 1,15
 		}else if(firstArgument.compare("-s") == 0){//Check se o user quer mudar a quantidade de frames
 
 			std::cout << "Frames Command Valid" << std::endl;
