@@ -1,15 +1,44 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <vector>
 
 #include "../lib/bcr.h"
 
 //Construct
+
+//start sets
+BarChart::BarChart(int count, int value, std::string name, std::string category){
+	setBarChart(count, value, name, category);
+}
+
+void BarChart::setBarChart(int count, int value, std::string name, std::string category){
+	m_count = count;
+	m_value = value;
+	m_name = name;
+	m_category = category;
+}
+
+void BarChart::setCount(int count){
+	m_count = count;
+}
+
+void BarChart::setValue(int value){
+	m_value = value;
+}
+
+void BarChart::setNameBar(std::string name){
+	m_name = name;
+}
+
+void BarChart::setCategory(std::string category){
+	m_category = category;
+}
+
 AnimationManage::AnimationManage(int frameRate, int numberOfBar){
 	setAnimationManage(frameRate, numberOfBar);
 }
 
-//start sets
 void AnimationManage::setAnimationManage(int frameRate, int numberOfBar){
 	m_frameRate = frameRate;
 	m_numberOfBar = numberOfBar;
@@ -38,6 +67,7 @@ void AnimationManage::setSubtitle(std::string subtitle){
 void AnimationManage::setSource(std::string source){
 	m_source = source;
 }
+
 //end sets
 
 void AnimationManage::initialize(int argc, char *argv[]){
@@ -84,7 +114,11 @@ void AnimationManage::initialize(int argc, char *argv[]){
 			std::cout << teste << std::endl;
 
 			getline(file, temp, ',');
-			std::cout << temp << std::endl;
+			std::cout << "size: " << bChart.size() << std::endl;
+//			bChart.push_back(bChart[0].setNameBar(temp));
+//			std::cout << "size: " << bChart.size() << std::endl;
+//			setCount(std::stoi(temp));
+//			std::cout << BarChart::getCount() << std::endl;
 			getline(file, temp, ',');
 			std::cout << temp << std::endl;
 			getline(file, temp, ',');

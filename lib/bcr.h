@@ -1,6 +1,33 @@
 #ifndef BCR_H
 #define BCR_H
 
+#include <vector>
+
+class BarChart{
+
+	private:
+		int m_count;
+		int m_value;
+		std::string m_name;
+		std::string m_category;
+
+	public:
+		BarChart(int count, int value, std::string name, std::string category);
+
+		void setBarChart(int count, int value, std::string name, std::string category);
+
+		void setCount(int count);
+		void setValue(int value);
+		void setNameBar(std::string name);
+		void setCategory(std::string category);
+
+		int getCount(int count){ return m_count; }
+		int getValue(int value){ return m_value; }
+		std::string getNameBar(std::string name){ return m_name; }
+		std::string getCategory(std::string category){ return m_category; }
+
+};
+
 class AnimationManage{
 
 	private:
@@ -10,10 +37,12 @@ class AnimationManage{
 		std::string m_title;
 		std::string m_subtitle;
 		std::string m_source;
+		std::vector<BarChart> bChart;
 
 	public:
 		//Constructor
 		AnimationManage(int frameRate=24, int numberOfBar=5);
+
 		
 		void setAnimationManage(int frameRate, int numberOfBar);
 		void setFrameRate(int frameRate);
@@ -37,13 +66,5 @@ class AnimationManage{
 		void process(void);
 };
 
-class BarChart{
-
-	private:
-		int m_count;
-		int m_value;
-		std::string m_name;
-		std::string category;
-};
 
 #endif
