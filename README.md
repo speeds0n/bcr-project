@@ -7,6 +7,8 @@ In the development of this program was used architecture game loop. basically fo
 
 This program need a file with format CSV file, where your data is separate by commas.
 
+To test program add more files
+
 #### To compile the program use Make file
 
 | Command | Description |
@@ -17,4 +19,5 @@ This program need a file with format CSV file, where your data is separate by co
 | `make bin/main.o` | `Build the main` object. |
 | `make clear` | Remove all *.o and bin file. |
 
+###### Available in [GitHub](https://github.com/speeds0n/bcr-project) and [GitLab](https://projetos.imd.ufrn.br/edsoncassiano0/bar-chart-race).
 ###### Author Edson Cassiano. October, 2020
