@@ -1,3 +1,10 @@
+/*!
+ *
+ * \file main.cpp
+ * \author Edson Cassiano
+ * \date November, 1st
+ */
+
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -10,17 +17,12 @@ int main(int argc, char *argv[]){
 
 	animation.initialize(argc, argv);
 
-// First Scope
-//	Arquitetura gameloop
-//	Gerenciador jogo
-//
-//	inicializarJogo(parametros);
-//
-//	while(verdade){
-//		processar();
-//		atualizar();
-//		imprime();
-//	}
+	while(not animation.exit()){
+
+		animation.process();
+		animation.update();
+		animation.render();
+	}
 
 	return 0;
 }
