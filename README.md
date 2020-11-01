@@ -20,4 +20,4 @@ To test program add more files
 | `make clear` | Remove all *.o and bin file. |
 
 ###### Available in [GitHub](https://github.com/speeds0n/bcr-project) and [GitLab](https://projetos.imd.ufrn.br/edsoncassiano0/bar-chart-race).
-###### Author Edson Cassiano. October, 2020
+###### Author Edson Cassiano. November, 2020
