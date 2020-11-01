@@ -48,4 +48,5 @@ objFolder:
 
 clean:
 	@ $(RM) ./bin/*
+	@ rm bcr
 	@ rmdir bin
